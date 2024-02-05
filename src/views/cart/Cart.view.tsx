@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../../context/Cart.context.tsx';
 import { CartContextType, ProductCart } from '../../types/CartType.ts';
 import { Product } from '../../types/Product.ts';
 import { useReadLocalStorage } from 'usehooks-ts';
 
-function CartView(props) {
+function CartView() {
   const products: Product[] | null = useReadLocalStorage('product');
   const { cart, addToCart, removeFromCart } = useContext(CartContext) as CartContextType;
 
