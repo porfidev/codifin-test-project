@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@types/uuid": "^9.0.8",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
     "prettier": "^3.2.4",
@@ -19,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
     "sort-by": "^1.2.0",
-    "usehooks-ts": "^2.12.1"
+    "usehooks-ts": "^2.12.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.11.0",
