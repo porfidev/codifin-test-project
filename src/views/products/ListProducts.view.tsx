@@ -1,18 +1,23 @@
 import { useReadLocalStorage } from 'usehooks-ts';
 import { Product } from '../../types/Product.ts';
 import { Link } from 'react-router-dom';
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
 import { OrderingType } from '../../types/Ordering.ts';
+import { CartContext } from '../../context/Cart.context.tsx';
+import { CartContextType } from '../../types/CartType.ts';
 
-function ListProducts() {
+function ListProductsView() {
   const products: Product[] | null = useReadLocalStorage('product');
 
   const [ordering, setOrdering] = useState<OrderingType>('none');
   const [orderedProducts, setOrderedProducts] = useState<Product[] | null>(null);
   const [isActiveSearch, setIsActiveSearch] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const addToCart = (id: string) => {
-    console.log('agregar al carrito' + id);
+  const { addToCart, cart } = useContext(CartContext) as CartContextType;
+
+  const addProduct = (product: Product) => {
+    console.log('agregar al carrito' + product);
+    addToCart(product);
   };
 
   const toggleOrdering = () => {
@@ -103,6 +108,9 @@ function ListProducts() {
   return (
     <div>
       <h2>Lista de Productos</h2>
+      <h3>Productos en Carrito: {cart?.products?.reduce((accum, current) => {
+        return accum + current.quantity;
+      }, 0) ?? 0}</h3>
 
       <form onSubmit={onSubmitSearch}>
         <input name={'search'} value={searchTerm} onChange={handleChange} required />
@@ -120,11 +128,11 @@ function ListProducts() {
               {product.price}
               <img width={180} src={product.photo} alt={'foto'} />
             </Link>
-            <button onClick={() => addToCart(product.id)}>Agregar al carrito</button>
+            <button onClick={() => addProduct(product)}>Agregar al carrito</button>
           </div>
         ))}
     </div>
   );
 }
 
-export default ListProducts;
+export default ListProductsView;

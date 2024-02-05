@@ -1,8 +1,9 @@
 import { createBrowserRouter, Link, Navigate, Outlet } from 'react-router-dom';
 import App from '../App.tsx';
 import AddProductView from '../views/products/AddProduct.view.tsx';
-import ListProducts from '../views/products/ListProducts.tsx';
+import ListProductsView from '../views/products/ListProducts.view.tsx';
 import DetailProductView from '../views/products/DetailProduct.view.tsx';
+import CartView from '../views/cart/Cart.view.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,8 @@ const router = createBrowserRouter([
         <Link to={'/products/list'}>
           <h1>productos</h1>
         </Link>
-        <Link to={'/products/add'}>Agregar</Link>
-        <Link to={'/products/detail/abcd'}>Detalle</Link>
+        <Link to={'/products/add'}>Nuevo Producto</Link>
+        <Link to={'/cart'}>Carrito</Link>
         <Navigate to={'/products/list'} replace />
         <Outlet />
       </div>
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: 'list',
         index: true,
-        element: <ListProducts />,
+        element: <ListProductsView />,
       },
       {
         path: 'add',
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/cart',
-    element: <h2>Cart View</h2>,
+    element: <CartView />,
   },
 ]);
 
