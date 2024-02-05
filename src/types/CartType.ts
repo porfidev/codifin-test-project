@@ -15,5 +15,5 @@ export type CartType = {
 export type CartContextType = {
   cart: CartType | null;
   addToCart: (product: Product) => void;
-  removeFromCart: (product: Product) => void;
+  removeFromCart: (product: ProductCart) => void;
 }
