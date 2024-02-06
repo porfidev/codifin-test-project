@@ -14,7 +14,7 @@ const InnerHeaderWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 800px;
+  max-width: 1200px;
 `;
 
 const Header = () => {

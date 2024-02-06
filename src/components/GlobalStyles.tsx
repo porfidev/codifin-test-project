@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/react';
 import { FC, ReactNode } from 'react';
 import ProtestStrike from '../fonts/ProtestStrike-Regular.ttf';
+import PoppinsRegular from '../fonts/Poppins-Regular.ttf';
 
 const GlobalStyles: FC<{children: ReactNode}> = ({ children }) => {
   return (
@@ -10,6 +11,11 @@ const GlobalStyles: FC<{children: ReactNode}> = ({ children }) => {
           @font-face {
             font-family: 'Protest Strike';
             src: url(${ProtestStrike}) format('truetype');
+          }
+
+          @font-face {
+            font-family: 'Poppins';
+            src: url(${PoppinsRegular}) format('truetype');
           }
           
           body {

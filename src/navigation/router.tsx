@@ -1,10 +1,11 @@
-import { createHashRouter, Link, Navigate, Outlet } from 'react-router-dom';
+import { createHashRouter, Navigate, Outlet } from 'react-router-dom';
 import App from '../App.tsx';
 import AddProductView from '../views/products/AddProduct.view.tsx';
 import ListProductsView from '../views/products/ListProducts.view.tsx';
 import DetailProductView from '../views/products/DetailProduct.view.tsx';
 import CartView from '../views/cart/Cart.view.tsx';
 import { Header } from '../components/Header/Header.tsx';
+import { SearchSortProvider } from '../context/SearchSort.context.tsx';
 
 const router = createHashRouter([
   {
@@ -26,7 +27,9 @@ const router = createHashRouter([
         element: (
           <>
             <Header />
-            <ListProductsView />
+            <SearchSortProvider>
+              <ListProductsView />
+            </SearchSortProvider>
           </>
         ),
       },
