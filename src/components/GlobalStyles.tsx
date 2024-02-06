@@ -31,6 +31,10 @@ const GlobalStyles: FC<{children: ReactNode}> = ({ children }) => {
             font-family: 'Protest Strike', sans-serif;
             color: black;
           }
+          
+          p {
+            font-family: 'Poppins', sans-serif;
+          }
 
           .grid-flow {
             display: grid;

@@ -41,6 +41,7 @@ const LinkWrapper = styled(Link)`
   align-items: center;
   color: black;
 `;
+
 const ActionButton = styled.button`
   flex: 1;
   font-family: 'Poppins', sans-serif;
