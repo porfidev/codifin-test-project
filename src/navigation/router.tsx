@@ -4,6 +4,7 @@ import AddProductView from '../views/products/AddProduct.view.tsx';
 import ListProductsView from '../views/products/ListProducts.view.tsx';
 import DetailProductView from '../views/products/DetailProduct.view.tsx';
 import CartView from '../views/cart/Cart.view.tsx';
+import { Header } from '../components/Header/Header.tsx';
 
 const router = createHashRouter([
   {
@@ -13,35 +14,50 @@ const router = createHashRouter([
   {
     path: '/products',
     element: (
-      <div>
-        <Link to={'/products/list'}>
-          <h1>productos</h1>
-        </Link>
-        <Link to={'/products/add'}>Nuevo Producto</Link>
-        <Link to={'/cart'}>Carrito</Link>
+      <>
         <Navigate to={'/products/list'} replace />
         <Outlet />
-      </div>
+      </>
     ),
     children: [
       {
         path: 'list',
         index: true,
-        element: <ListProductsView />,
+        element: (
+          <>
+            <Header />
+            <ListProductsView />
+          </>
+        ),
       },
       {
         path: 'add',
-        element: <AddProductView />,
+        element: (
+          <>
+            <Header />
+            <AddProductView />
+          </>
+        ),
       },
       {
         path: 'detail/:productId',
-        element: <DetailProductView />,
+        element: (
+          <>
+            <Header />
+            <DetailProductView />
+          </>
+        ),
       },
     ],
   },
   {
     path: '/cart',
-    element: <CartView />,
+    element: (
+      <>
+        <Header />
+        <CartView />
+      </>
+    ),
   },
 ]);
 

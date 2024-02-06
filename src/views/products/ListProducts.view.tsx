@@ -1,10 +1,11 @@
 import { useReadLocalStorage } from 'usehooks-ts';
 import { Product } from '../../types/Product.ts';
 import { Link } from 'react-router-dom';
-import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
 import { OrderingType } from '../../types/Ordering.ts';
 import { CartContext } from '../../context/Cart.context.tsx';
 import { CartContextType } from '../../types/CartType.ts';
+import { Header } from '../../components/Header/Header.tsx';
 
 function ListProductsView() {
   const products: Product[] | null = useReadLocalStorage('product');
@@ -108,9 +109,7 @@ function ListProductsView() {
   return (
     <div>
       <h2>Lista de Productos</h2>
-      <h3>Productos en Carrito: {cart?.products?.reduce((accum, current) => {
-        return accum + current.quantity;
-      }, 0) ?? 0}</h3>
+      <Link to={'/products/add'}>Nuevo Producto</Link>
 
       <form onSubmit={onSubmitSearch}>
         <input name={'search'} value={searchTerm} onChange={handleChange} required />
