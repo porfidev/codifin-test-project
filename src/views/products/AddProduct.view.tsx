@@ -1,13 +1,9 @@
 import { ChangeEvent, FormEvent, FormEventHandler, useEffect, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 import { v4 as uuidv4 } from 'uuid';
-
-type ProductForm = {
-  id?: string;
-  name: string;
-  price: number;
-  photo?: string;
-};
+import { TitleView } from '../../components/TitleView.ts';
+import { MainViewContainer } from '../../components/MainViewContainer.tsx';
+import { ProductForm } from '../../types/ProductForm.ts';
 
 function AddProductView() {
   const [productStorage, setProductStorage] = useLocalStorage<ProductForm[]>('product', []);
@@ -63,8 +59,8 @@ function AddProductView() {
   }, [fileImage]);
 
   return (
-    <div>
-      <h2>Agregar Producto</h2>
+    <MainViewContainer>
+      <TitleView>Agregar Producto</TitleView>
       <form onSubmit={validateProduct}>
         <div>
           <label htmlFor={'name'}>Producto</label>
@@ -81,7 +77,7 @@ function AddProductView() {
         </div>
         <button>Agregar</button>
       </form>
-    </div>
+    </MainViewContainer>
   );
 }
 
