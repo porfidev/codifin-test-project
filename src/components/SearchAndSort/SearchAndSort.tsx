@@ -6,8 +6,7 @@ import { OrderingType } from '../../types/Ordering.ts';
 import { FaArrowUpWideShort } from 'react-icons/fa6';
 import { FaArrowDownShortWide } from 'react-icons/fa6';
 import { FaAlignCenter } from 'react-icons/fa6';
-import { FaEraser } from "react-icons/fa6";
-
+import { FaEraser } from 'react-icons/fa6';
 
 const SearchInputWrapper = styled.div`
   display: flex;
@@ -91,7 +90,9 @@ const SearchAndSort = () => {
         <SearchInput name={'search'} value={searchTerm} onChange={handleChange} required />
         <ActionButton>buscar</ActionButton>
         <ActionButton onClick={onPressClear}>
-          <FaEraser size={'1.5rem'} />limpiar</ActionButton>
+          <FaEraser size={'1.5rem'} />
+          limpiar
+        </ActionButton>
       </StyledForm>
 
       <div>
