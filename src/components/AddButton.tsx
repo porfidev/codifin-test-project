@@ -11,6 +11,9 @@ const ButtonWrapper = styled.div`
   background-color: rgb(255, 106, 0);
   max-width: 12rem;
   padding: 0.8rem 2rem;
+  &:hover {
+    background-color: rgba(255, 106, 0, 0.5);
+  }
 `;
 
 const ButtonLink = styled(Link)`
